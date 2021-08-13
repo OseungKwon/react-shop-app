@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
-import { Checkbox, Collapse } from 'antd';
+import { Checkbox, Collapse } from 'antd'
+import { continents } from './Datas'
+import 'antd/dist/antd.css'
+const { Panel } = Collapse;
 
-const { Panel } = Collapse
-
-
-function CheckBox(props) {
-
+const CheckBox = (props) => {
     const [Checked, setChecked] = useState([])
 
     const handleToggle = (value) => {
-
         const currentIndex = Checked.indexOf(value);
         const newChecked = [...Checked];
 
@@ -18,29 +16,23 @@ function CheckBox(props) {
         } else {
             newChecked.splice(currentIndex, 1)
         }
-
         setChecked(newChecked)
-        props.handleFilters(newChecked)
-        //update this checked information into Parent Component 
-
+        props.handleFilters(newChecked);
     }
-
-    const renderCheckboxLists = () => props.list && props.list.map((value, index) => (
-        <React.Fragment key={index}>
-            <Checkbox
-                onChange={() => handleToggle(value._id)}
-                type="checkbox"
-                checked={Checked.indexOf(value._id) === -1 ? false : true}
-            />&nbsp;&nbsp;
-            <span>{value.name}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </React.Fragment>
-    ))
 
     return (
         <div>
-            <Collapse defaultActiveKey={['0']} >
-                <Panel header="Continents" key="1">
-                    {renderCheckboxLists()}
+            <Collapse defaultActiveKey={['0']}>
+                <Panel header key="1">
+                    {continents.map((value, index) => (
+                        <React.Fragment key={index}>
+                            <Checkbox
+                                onChange={() => handleToggle(value._id)}
+                                type="checkbox"
+                                checked={Checked.indexOf(value._id) === -1 ? false : true} />
+                            <span>{value.name}</span>
+                        </React.Fragment>
+                    ))}
                 </Panel>
             </Collapse>
         </div>
