@@ -10,6 +10,12 @@ const Topbar = () => {
                 <Menu.Item key="Upload">
                     <a href="/product/upload">Upload</a>
                 </Menu.Item>
+                <Menu.Item key="Login">
+                    <a href="/login">Login</a>
+                </Menu.Item>
+                <Menu.Item key="Register">
+                    <a href="/register">Register</a>
+                </Menu.Item>
             </Menu>
         </div>
     )

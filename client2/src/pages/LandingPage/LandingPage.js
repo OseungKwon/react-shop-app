@@ -309,7 +309,7 @@ const LandingPage = () => {
                 ) : (
                     <Row gutter={[16, 16]}>
                         {Products.map((product) => (<Col lg={6} md={8} xs={24} key={product._id}>
-                            <a href="/">
+                            <a href={`/product/${product._id}`}>
                                 <Card>
                                     <Meta
                                         title={product.title}
