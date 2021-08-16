@@ -51,7 +51,7 @@ export function logoutUser() {
     }
 }
 
-
+// cart
 export function addToCart(_id) {
     const request = axios.get(`${USER_SERVER}/addToCart?productId=${_id}`)
         .then(response => response.data);
@@ -63,7 +63,7 @@ export function addToCart(_id) {
 }
 
 
-
+// cartDetail
 export function getCartItems(cartItems, userCart) {
     const request = axios.get(`/api/product/products_by_id?id=${cartItems}&type=array`)
         .then(response => {

@@ -1,9 +1,11 @@
 import { Button, Descriptions } from 'antd'
 import Axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../_actions/user_actions'
 
 const DetailProductPage = (props) => {
-
+    const dispatch = useDispatch()
     const productId = props.match.params.productId
     const [Product, setProduct] = useState([])
     useEffect(() => {
@@ -13,7 +15,10 @@ const DetailProductPage = (props) => {
                 console.log(response)
             })
 
-    }, [])
+    }, [productId])
+    const addToCartHandler = () => {
+        dispatch(addToCart(Product._id))
+    }
 
     return (
         <div style={{ width: "70%", margin: "0 auto" }}>
@@ -30,7 +35,7 @@ const DetailProductPage = (props) => {
 
                 </Descriptions>
                 <div style={{ display: "flex", marginTop: "4rem" }}>
-                    <Button size="large" shape="round" type="danger">Add to Cart</Button>
+                    <Button size="large" shape="round" type="danger" onClick={addToCartHandler}>Add to Cart</Button>
                 </div>
             </div>
         </div>
