@@ -77,7 +77,7 @@ const UploadPage = (props) => {
             <div>Select: {SelectContinent}</div>
             <Wrapper>
                 <UploadForm onSubmit={onSubmit}>
-                    <label>TItle</label>
+                    <label>Title</label>
                     <input
                         onChange={onChangeTitle}
                         value={TitleValue} />
