@@ -36,8 +36,9 @@ const Select = styled.select`
     margin-top: 0.3rem;
     border: 1px solid rgb(215,226,235);
     padding: 0.3rem;
+    width: 80%;
     border-radius: 5px;
-    appearance: none;
+    //appearance: none;
     &:focus{
         border-color: #0078FF;
         outline-color: #0078FF;
@@ -103,6 +104,7 @@ const UploadPage = (props) => {
                 }
             })
     }
+    //
 
     return (
         <Wrapper>
