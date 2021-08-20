@@ -2,7 +2,6 @@
 // import { Collapse, Radio } from 'antd';
 // const { Panel } = Collapse;
 
-
 // function RadioBox(props) {
 
 //     const [Value, setValue] = useState('0')
@@ -34,29 +33,32 @@
 // }
 
 // export default RadioBox
-import React, { useState } from 'react'
-import { Radio, Collapse } from 'antd'
-import { price } from './Datas'
-import 'antd/dist/antd.css'
+import React, { useState } from "react";
+import { Radio, Collapse } from "antd";
+import { price } from "./Datas";
+import "antd/dist/antd.css";
 const { Panel } = Collapse;
 
 const RadioBox = (props) => {
-    const [Price, setPrice] = useState('0')
-    const handleChange = (e) => {
-        setPrice(e.target.value);
-        props.handleFilter(e.target.value)
-    }
-    return (
-        <Collapse defaultActiveKey={[0]}>
-            <Panel header="price">
-                <Radio.Group onChange={handleChange} value={Price}>
-                    {price.map((value) => (
-                        <Radio key={value._id} value={`${value._id}`}>{value.name}</Radio>
-                    ))}
-                </Radio.Group>
-            </Panel>
-        </Collapse>
-    )
-}
+  const [Price, setPrice] = useState("0");
 
-export default RadioBox
+  const handleChange = (e) => {
+    setPrice(e.target.value);
+    props.handleFilter(e.target.value);
+  };
+  return (
+    <Collapse defaultActiveKey={[0]}>
+      <Panel header="price">
+        <Radio.Group onChange={handleChange} value={Price}>
+          {price.map((value) => (
+            <Radio key={value._id} value={`${value._id}`}>
+              {value.name}
+            </Radio>
+          ))}
+        </Radio.Group>
+      </Panel>
+    </Collapse>
+  );
+};
+
+export default RadioBox;
