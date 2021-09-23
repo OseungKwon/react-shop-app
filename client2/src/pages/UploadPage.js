@@ -28,7 +28,7 @@ const Continents = [
 ]
 
 
-const UploadPage = (props) => {
+const UploadPage = ({ history }) => {
     const [TitleValue, setTitleValue] = useState('');
     const [DescriptionValue, setDescriptionValue] = useState('');
     const [PriceValue, setPriceValue] = useState(0)
@@ -60,7 +60,7 @@ const UploadPage = (props) => {
             .then(response => {
                 if (response.data.success) {
                     alert('Product Successfully Uploaded')
-                    props.history.push('/')
+                    history.push('/')
                 } else {
                     alert('Failed to upload Product')
                 }
